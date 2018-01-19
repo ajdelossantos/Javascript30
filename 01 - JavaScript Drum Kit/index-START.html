@@ -67,12 +67,23 @@
       if (!audio) return; // stop fn from running if null
 
       audio.currentTime = 0;
-      audio.play()
+      audio.play();
 
-      // key.classList.add('playing')
-      // key.classList.remove('playing')
-      key.classList.toggle('playing')
+      key.classList.add('playing') // .remove and .toggle available too
     });
+
+    // add transition-end event
+    const removeTransition = e => {
+      // console.log(e);
+      if (e.propertyName !== "transform") return;
+      console.log(e.propertyName);
+      console.log(this);
+    };
+
+    // Event listeners must be attached to all keys individually
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+
   </script>
 
 
