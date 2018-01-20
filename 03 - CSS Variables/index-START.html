@@ -68,7 +68,9 @@
     const inputs = document.querySelectorAll('.controls input');
 
     function handleUpdate() {
-      console.log(this.value);
+      // read up on dataset documentation!
+      const suffix = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
     };
 
     // listen for both change and mousemove for response on drag
