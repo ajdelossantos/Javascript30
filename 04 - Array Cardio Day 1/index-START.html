@@ -81,8 +81,6 @@
     let dataCount = new Object(0);
 
     data.forEach(datum => {
-      console.log(datum);
-      console.table(dataCount);
       return !dataCount[datum] ? dataCount[datum] = 1 : dataCount[datum]++;
     });
     console.table(dataCount);
