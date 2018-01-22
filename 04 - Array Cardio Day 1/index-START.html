@@ -74,9 +74,18 @@
     // Sort the people alphabetically by last name
     const inventorsSortByLast = inventors.sort((x, y) => (x.last < y.last ? -1 : 1));
     console.table(inventorsSortByLast);
+
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+    let dataCount = new Object(0);
+
+    data.forEach(datum => {
+      console.log(datum);
+      console.table(dataCount);
+      return !dataCount[datum] ? dataCount[datum] = 1 : dataCount[datum]++;
+    });
+    console.table(dataCount);
 
   </script>
 </body>
