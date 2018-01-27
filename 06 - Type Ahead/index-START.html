@@ -34,14 +34,26 @@
     };
 
     function displayMatches() {
-      let that = findMatches(this.value, cities)
-      console.log(that);
+      const matchArray = findMatches(this.value, cities)
+      const html = matchArray.map(place => {
+        return `
+          <li>
+            <span class="name">${place.city}, ${place.state}</span>
+            <span class="population">${place.population}</span>
+          </li>
+        `;
+      }).join('');
+
+      suggestions.innerHTML = html;
     };
 
     const searchInput = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
 
+    // change on triggers on clickout
     searchInput.addEventListener('change', displayMatches);
+    // keyup adds updates after all keys
+    searchInput.addEventListener('keyup', displayMatches);
 
   </script>
 </body>
