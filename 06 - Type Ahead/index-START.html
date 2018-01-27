@@ -33,6 +33,16 @@
       });
     };
 
+    function displayMatches() {
+      let that = findMatches(this.value, cities)
+      console.log(that);
+    };
+
+    const searchInput = document.querySelector('.search');
+    const suggestions = document.querySelector('.suggestions');
+
+    searchInput.addEventListener('change', displayMatches);
+
   </script>
 </body>
 
