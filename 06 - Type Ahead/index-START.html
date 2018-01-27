@@ -23,9 +23,15 @@
 
     fetch(endpoint)
       .then(payload => payload.json())
-      .then((data => cities.push(...data)));
+      .then((data => cities.push(...data))); // nice spread operator
 
-    console.log(cities);
+    function findMatches(wortdToMatch, cities) {
+      return cities.filter(place => {
+        // match logic here
+        const regex = new RegExp(wortdToMatch, 'gi');
+        return place.city.match(regex) || place.state.match(regex);
+      });
+    };
 
   </script>
 </body>
