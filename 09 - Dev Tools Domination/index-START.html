@@ -17,7 +17,7 @@
   </style>
 
   <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'Hugo', age: 8 }];
 
     function makeGreen() {
       const p = document.querySelector('p');
@@ -56,9 +56,11 @@
 
     // Grouping together
     dogs.forEach(dog => {
-      console.log(`This is ${dog.name}`)
-      console.log(`${dog.name} is ${dog.age} years old`)
-      console.log(`That's totally ${dog.age * 7} dog years`)
+      console.group(dog.name); // groupCollapsed also works
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`That's totally ${dog.age * 7} dog years`);
+      console.groupEnd();
     });
 
     // counting
