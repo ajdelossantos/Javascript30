@@ -55,6 +55,7 @@
     console.dir(p);
 
     // Grouping together
+    console.table(dogs);
     dogs.forEach(dog => {
       console.group(dog.name); // groupCollapsed also works
       console.log(`This is ${dog.name}`);
