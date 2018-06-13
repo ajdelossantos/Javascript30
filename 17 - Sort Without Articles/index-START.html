@@ -50,15 +50,17 @@
     const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
     const bandsList = document.getElementById("bands");
 
-    function sortBands() {
-      const articles = { A, An, The: true, }
-      const sortedBands = bands;
-
-      return sortedBands
+    // Regex expression here
+    function strip(bandName) {
+      return bandName.replace(/^(a |the |an )/i, '').trim();
     }
 
+    const sortedBands = bands.sort((x, y) => {
+      return strip(x) > strip(y) ? 1 : -1;
+    });
+
     function printBands() {
-      sortBands().forEach(band => {
+      sortedBands.forEach(band => {
         const bandName = document.createElement('li');
         bandName.innerHTML = band;
         bandsList.appendChild(bandName);
