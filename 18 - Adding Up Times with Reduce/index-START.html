@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Videos</title>
 </head>
+
 <body>
   <ul class="videos">
     <li data-time="5:43">
@@ -181,7 +183,15 @@
       Video 58
     </li>
   </ul>
-<script>
-</script>
+  <script>
+
+    let videos = document.querySelectorAll(".videos li")
+
+    let videoLengths = Array.from(videos).map(li => li.dataset.time);
+
+    console.log(videoLengths);
+
+  </script>
 </body>
+
 </html>
