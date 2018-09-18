@@ -186,8 +186,14 @@
   <script>
 
     let videos = document.querySelectorAll(".videos li")
+    let videoLengths = Array.from(videos)
+      .map(li => li.dataset.time)
+      .map(timeCode => {
+        let timeArray = timeCode.split(":");
+        timeArray = timeArray.map(str => parseInt(str))
 
-    let videoLengths = Array.from(videos).map(li => li.dataset.time);
+        return timeArray;
+      })
 
     console.log(videoLengths);
 
