@@ -188,14 +188,27 @@
     let videos = document.querySelectorAll(".videos li")
     let videoLengths = Array.from(videos)
       .map(li => li.dataset.time)
-      .map(timeCode => {
-        let timeArray = timeCode.split(":");
-        timeArray = timeArray.map(str => parseInt(str))
 
-        return timeArray;
+      .map(timeCode => {
+        // Nifty array destructuring!
+        let [mins, secs] = timeCode.split(":").map(parseFloat)
+        return (mins * 60) + secs;
       })
 
+      .reduce((totalPlayTime, seconds) => totalPlayTime + seconds)
+
     console.log(videoLengths);
+
+    let secondsLeft = videoLengths;
+
+    const hours = Math.floor(secondsLeft / 3600);
+    secondsLeft %= 3600;
+
+    const mins = Math.floor(secondsLeft / 60);
+    secondsLeft %= 60;
+
+
+    console.log(`${hours}:${mins}:${secondsLeft}`)
 
   </script>
 </body>
